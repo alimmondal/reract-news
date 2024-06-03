@@ -7,6 +7,7 @@ import "./singlepage.css";
 import "../home/sideContent/side/side.css";
 import SinglePageSlider from "./slider/SinglePageSlider";
 import { hero } from "../../../../dummyData copy";
+import { FaEnvelope, FaFacebook, FaPinterest, FaTwitter } from "react-icons/fa";
 
 const SinglePage = () => {
   const { id } = useParams();
@@ -38,18 +39,18 @@ const SinglePage = () => {
 
               <div className="social">
                 <div className="socBox">
-                  <i className="fab fa-facebook-f"></i>
+                  <FaFacebook size={24} />
                   <span>SHARE</span>
                 </div>
-                <div className="socBox">
-                  <i className="fab fa-twitter"></i>
+                <div className="socBox  ">
+                  <FaTwitter size={24} />
                   <span>TWITTER</span>
                 </div>
                 <div className="socBox">
-                  <i className="fab fa-pinterest"></i>
+                  <FaPinterest size={24} />
                 </div>
                 <div className="socBox">
-                  <i className="fa fa-envelope"></i>
+                  <FaEnvelope size={24} />
                 </div>
               </div>
 

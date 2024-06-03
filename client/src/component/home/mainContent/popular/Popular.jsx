@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import "./Popular.css";
 
@@ -5,11 +6,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Heading from "../../../common/heading/Heading";
-import { popular } from "../../../../../../dummyData copy";
+// import { popular } from "../../../../../../dummyData copy";
 import { FaCalendarDay } from "react-icons/fa";
 import { FaComment } from "react-icons/fa";
 
-const Popular = () => {
+const Popular = ({ popular }) => {
   const settings = {
     className: "center",
     centerMode: false,
@@ -42,21 +43,21 @@ const Popular = () => {
                   <div className="box shadow">
                     <div className="images row">
                       <div className="img">
-                        <img src={val.cover} alt="" />
+                        <img src={val.urlToImage} alt="" />
                       </div>
                       <div className="category category1">
-                        <span>{val.catgeory}</span>
+                        <span>{val?.source?.name}</span>
                       </div>
                     </div>
                     <div className="text row">
                       <h1 className="title">{val.title.slice(0, 40)}...</h1>
-                      <div className="date">
+                      <div className="date flex gap-3">
                         <FaCalendarDay size={24} />
-                        <label>{val.date}</label>
+                        <label>{val.publishedAt}</label>
                       </div>
                       <div className="comment">
                         <FaComment size={24} />
-                        <label>{val.comments}</label>
+                        <label>{val?.source?.id}</label>
                       </div>
                     </div>
                   </div>

@@ -1,5 +1,7 @@
 .social .socBox {
-  padding: 10px 20px;
+  display: flex;
+  gap: 5px;
+  padding: 10px 10px;
   margin-bottom: 10px;
   color: #fff;
 }
