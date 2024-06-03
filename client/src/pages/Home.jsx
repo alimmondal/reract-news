@@ -5,8 +5,9 @@
 import { useEffect, useState } from "react";
 import Hero from "../component/home/hero/Hero";
 import Homes from "../component/home/mainContent/homes/Home";
+import Discover from "../component/home/discover/Discover";
 
-const Home = () => {
+const HomePage = () => {
   // const data = useLoaderData();
   // const [news, setnews] = useState([]);
 
@@ -23,6 +24,7 @@ const Home = () => {
     <div>
       <Hero />
       <Homes />
+      <Discover />
       {/* <Banner />
       <Products data={data} />
       <Accordian /> */}
@@ -30,4 +32,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

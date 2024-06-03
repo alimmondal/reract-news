@@ -1,7 +1,8 @@
-import React from "react"
-import Slider from "react-slick"
-import { popular } from "../../../dummyData"
-import "./style.css"
+import React from "react";
+import Slider from "react-slick";
+
+import "./style.css";
+import { popular } from "../../../../../dummyData copy";
 
 // same code of popular and change some part
 const SinglePageSlider = () => {
@@ -21,31 +22,31 @@ const SinglePageSlider = () => {
         },
       },
     ],
-  }
+  };
   return (
     <>
-      <section className='singlePopular'>
-        <div className='content'>
+      <section className="singlePopular">
+        <div className="content">
           <Slider {...settings}>
             {popular.map((val) => {
               return (
-                <div className='items'>
-                  <div className='box'>
-                    <div className='images'>
-                      <img src={val.cover} alt='' />
+                <div key={val?.id} className="items">
+                  <div className="box">
+                    <div className="images">
+                      <img src={val.cover} alt="" />
                     </div>
-                    <div className='text'>
-                      <h1 className='title'>{val.title}</h1>
+                    <div className="text">
+                      <h1 className="title">{val.title}</h1>
                     </div>
                   </div>
                 </div>
-              )
+              );
             })}
           </Slider>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default SinglePageSlider
+export default SinglePageSlider;

@@ -14,6 +14,8 @@ import AddProducts from "../pages/AddProducts";
 import EditProducts from "../pages/EditProducts";
 import Profile from "../pages/Profile";
 import EditProfile from "../pages/EditProfile";
+import HomePage from "../pages/Home";
+import SinglePage from "../component/singlePage/SinglePage";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +25,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <HomePage />,
         loader: () => fetch("http://localhost:5000/shoes"),
       },
       {
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/singlepage/:id",
+        element: <SinglePage />,
       },
       {
         path: "/login",
