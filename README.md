@@ -1,5 +1,5 @@
 Please, Download or clone the repository.
-\*\*\*if downloaded, go to terminal, cd cleint, run: npm i,
+\*\*\*if downloaded, open vs code/ code editor, go to terminal, run: cd cleint, run: npm i,
 and now run: npm run dev,
 to see in the browser: ctr+click on the url:
 http://localhost:5173/
