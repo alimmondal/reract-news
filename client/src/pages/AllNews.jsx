@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import SingleProductCardDashboard from "../components/dashboard/SingleProductCardDashboard";
 import { Table } from "flowbite-react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -8,52 +7,76 @@ const AllNews = () => {
   const [products, setProducts] = useState([]);
   // const [showModal, setShowModal] = useState(false);
   // const [postIdToDelete, setPostIdToDelete] = useState("");
+  const [topNews, setTopNews] = useState([]);
+
+  useEffect(() => {
+    const apiKey = "8f32b7d45db04cc2bab08310586753dd";
+
+    fetch(`https://newsapi.org/v2/top-headlines?country=US&apikey=${apiKey}`)
+      .then((res) => res.json())
+      .then((data) => setTopNews(data))
+      .catch((error) => console.error("Error fetching top headlines:", error));
+  }, []);
+  // console.log(topNews);
+
+  const randomArticles = topNews?.articles;
+  // console.log(randomArticles);
+
+  const removeDuplicates = () => {
+    if (!randomArticles) return [];
+    return randomArticles.filter(
+      (article) => article?.source.id !== null && article?.urlToImage !== null
+    );
+  };
+
+  const filteredArticles = removeDuplicates();
+  // console.log(filteredArticles);
 
   return (
-    <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
+    <div className="table-auto overflow-x-scroll md:mx-auto p-10 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
       {/* {currentUser.isAdmin && products.length > 0 ? ( */}
       <>
         <Table hoverable className="shadow-md">
           <Table.Head>
-            {/* <Table.HeadCell>Date updated</Table.HeadCell> */}
-            <Table.HeadCell>Product image</Table.HeadCell>
+            <Table.HeadCell>Date</Table.HeadCell>
+            <Table.HeadCell>News image</Table.HeadCell>
             <Table.HeadCell>Post title</Table.HeadCell>
-            <Table.HeadCell>Price</Table.HeadCell>
+            <Table.HeadCell>News agency</Table.HeadCell>
             <Table.HeadCell>Details</Table.HeadCell>
             <Table.HeadCell>Delete</Table.HeadCell>
             <Table.HeadCell>
               <span className=""> Edit</span>
             </Table.HeadCell>
           </Table.Head>
-          {products.map((shoe) => (
-            <Table.Body key={shoe._id} className="divided-y ">
+          {filteredArticles.map((item) => (
+            <Table.Body key={item._id} className="divided-y ">
               <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                {/* <Table.Cell> */}
-                {/* {new Date(post.updatedAt).toLocaleDateString()} */}
-                {/* {new Date().toLocaleDateString()} */}
-                {/* </Table.Cell> */}
                 <Table.Cell>
-                  <Link to={`/products/${shoe?._id}`}>
-                    <img src={shoe?.image_url} alt="Shoes" className="w-36" />
+                  {new Date(item.publishedAt).toLocaleDateString()}
+                  {/* {new Date().toLocaleDateString()} */}
+                </Table.Cell>
+                <Table.Cell>
+                  <Link to={`/news/${item?._id}`}>
+                    <img src={item?.urlToImage} alt="items" className="w-36" />
                   </Link>
                 </Table.Cell>
 
                 <Table.Cell className="">
                   <Link
                     className="font-medium text-gray-900 dark:text-white"
-                    to={`/products/${shoe?._id}`}
+                    to={`/products/${item?._id}`}
                   >
-                    {shoe?.title}
+                    {item?.title}
                   </Link>
                 </Table.Cell>
 
                 <Table.Cell>
-                  <span className="">{shoe?.price}</span>
+                  <span className="">{item?.source.name}</span>
                 </Table.Cell>
 
                 <Table.Cell>
                   <Link
-                    to={`/products/${shoe?._id}`}
+                    to={`/products/${item?._id}`}
                     className="font-medium hover:underline cursor-pointer"
                   >
                     See Details
@@ -63,16 +86,16 @@ const AllNews = () => {
                   <span
                     // onClick={() => {
                     // setShowModal(true);
-                    // setPostIdToDelete(shoe?._id);
+                    // setPostIdToDelete(item?._id);
                     // }}
-                    onClick={() => handleDelete(shoe?._id)}
+                    onClick={() => handleDelete(item?._id)}
                     className="font-medium text-red-500 hover:underline cursor-pointer"
                   >
                     Delete
                   </span>
                 </Table.Cell>
                 <Table.Cell>
-                  <Link to={`edit/${shoe?._id}`}>
+                  <Link to={`edit/${item?._id}`}>
                     <span className="text-emerald-500 hover:underline">
                       Edit
                     </span>
@@ -130,10 +153,10 @@ export default AllNews;
   /* <div>
       <h1 className="text-5xl font-bold text-center">All Produts</h1>
       <div className="my-16 flex flex-wrap gap-4">
-        {products.map((shoe) => (
+        {products.map((item) => (
           <SingleProductCardDashboard
-            key={shoe._id}
-            shoe={shoe}
+            key={item._id}
+            item={item}
             onDelete={handleDeleteProduct}
           />
         ))}
