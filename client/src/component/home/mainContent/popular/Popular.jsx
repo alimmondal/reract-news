@@ -39,7 +39,7 @@ const Popular = ({ popular }) => {
           <Slider {...settings}>
             {popular.map((val) => {
               return (
-                <div key={val?.id} className="items">
+                <div key={val?.source.id} className="items">
                   <div className="box shadow">
                     <div className="images row">
                       <div className="img">

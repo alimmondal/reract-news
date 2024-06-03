@@ -1,19 +1,18 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import "./hero.css";
 import Card from "./Card";
-import { hero } from "../../../../../dummyData copy";
+// import { hero } from "../../../../../dummyData copy";
 
-const Hero = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [items, setIems] = useState(hero);
+const Hero = ({ items }) => {
+  // const [items, setIems] = useState(hero);
 
   return (
     <>
       <section className="hero">
         <div className="container">
-          {items.map((item, index) => (
-            <Card key={item?.id} item={item} />
+          {items.slice(3, 7).map((item, index) => (
+            <Card key={item?.source.id} item={item} />
           ))}
         </div>
       </section>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Discover from "../../discover/Discover";
 import Side from "../../sideContent/side/Side";
 import Life from "../life/Life";
 import Music from "../musics/Music";
@@ -18,16 +17,21 @@ const Homes = () => {
       .then((data) => setTopNews(data))
       .catch((error) => console.error("Error fetching top headlines:", error));
   }, []);
+  // console.log(topNews);
 
   const randomArticles = topNews?.articles;
+  // console.log(randomArticles);
 
   const removeDuplicates = () => {
     if (!randomArticles) return [];
-    return randomArticles.filter((article) => article?.source.id !== null);
+    return randomArticles.filter(
+      (article) => article?.source.id !== null && article?.urlToImage !== null
+    );
   };
 
   const filteredArticles = removeDuplicates();
   console.log(filteredArticles);
+
   return (
     <>
       <main>

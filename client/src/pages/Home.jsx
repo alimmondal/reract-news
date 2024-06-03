@@ -24,7 +24,9 @@ const HomePage = () => {
 
   const removeDuplicates = () => {
     if (!randomArticles) return [];
-    return randomArticles.filter((article) => article?.source.id !== null);
+    return randomArticles.filter(
+      (article) => article?.source.id !== null && article?.urlToImage !== null
+    );
   };
 
   const filteredArticles = removeDuplicates();
@@ -32,12 +34,10 @@ const HomePage = () => {
 
   return (
     <div>
-      <Hero />
+      <Hero items={filteredArticles} />
       <Homes data={filteredArticles} />
       <Discover />
-      {/* <Banner />
-      <Products data={data} />
-      <Accordian /> */}
+      {/* <Products data={data} /> */}
     </div>
   );
 };

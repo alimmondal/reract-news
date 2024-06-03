@@ -1,23 +1,24 @@
 /* eslint-disable react/prop-types */
-// import React from "react"
+
 import { Link } from "react-router-dom";
 
-const Card = ({ item: { id, cover, catgeory, title, authorName, time } }) => {
+const Card = ({
+  item: { id, urlToImage, source, title, author, publishedAt },
+}) => {
   return (
     <>
-      <div key={id} className="box">
+      <div key={source?.id} className="box">
         <div className="img">
-          <img src={cover} alt="" />
+          <img src={urlToImage} alt="" />
         </div>
         <div className="text">
-          <span className="category">{catgeory}</span>
-          {/*<h1 className='titleBg'>{title}</h1>*/}
+          <span className="category">{source?.name}</span>
           <Link to={`/SinglePage/${id}`}>
             <h1 className="titleBg">{title}</h1>
           </Link>
           <div className="author flex">
-            <span>by {authorName}</span>
-            <span>{time}</span>
+            <span>by {author}</span>
+            <span>{publishedAt}</span>
           </div>
         </div>
       </div>
