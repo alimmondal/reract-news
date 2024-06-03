@@ -27,16 +27,16 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/culture">Culture</Link>
+                <Link to="/all">Culture</Link>
               </li>
               <li>
-                <Link to="/politics">Politics</Link>
+                <Link to="/all">Politics</Link>
               </li>
               <li>
-                <Link to="/memes">Memes</Link>
+                <Link to="/all">Memes</Link>
               </li>
               <li>
-                <Link to="/sports">Sports</Link>
+                <Link to="/all">Sports</Link>
               </li>
               {!user && (
                 <>
@@ -48,13 +48,12 @@ const Header = () => {
                   </li>
                 </>
               )}
-              {user && (
-                <li>
-                  <Link to={"/dashboard"}>Dashboard</Link>
-                </li>
-              )}
+
               {user && (
                 <>
+                  <li>
+                    <Link to={"/dashboard"}>Dashboard</Link>
+                  </li>
                   <li>
                     <button
                       onClick={handleLogout}
@@ -70,21 +69,6 @@ const Header = () => {
               )}
             </ul>
 
-            {/* <div className="navbar-end space-x-2">
-              {user && (
-                <button
-                  onClick={handleLogout}
-                  className="btn bg-red-500 text-white hidden lg:block"
-                >
-                  Logout
-                </button>
-              )}
-              <div className="avatar">
-                <div className="w-12 rounded-full border-2 border-black">
-                  <img src={user?.photoURL || "/public/placeholder.jpg"} />
-                </div>
-              </div>
-            </div> */}
             <button className="barIcon" onClick={() => setNavbar(!navbar)}>
               {navbar ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>

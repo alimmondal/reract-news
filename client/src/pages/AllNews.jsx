@@ -56,7 +56,7 @@ const AllNews = () => {
                   {/* {new Date().toLocaleDateString()} */}
                 </Table.Cell>
                 <Table.Cell>
-                  <Link to={`/news/${item?._id}`}>
+                  <Link to={`/news/${item?.id}`}>
                     <img src={item?.urlToImage} alt="items" className="w-36" />
                   </Link>
                 </Table.Cell>
@@ -64,7 +64,7 @@ const AllNews = () => {
                 <Table.Cell className="">
                   <Link
                     className="font-medium text-gray-900 dark:text-white"
-                    to={`/products/${item?._id}`}
+                    to={`/products/${item?.id}`}
                   >
                     {item?.title}
                   </Link>
@@ -76,7 +76,7 @@ const AllNews = () => {
 
                 <Table.Cell>
                   <Link
-                    to={`/products/${item?._id}`}
+                    to={`/news/${item?.id}`}
                     className="font-medium hover:underline cursor-pointer"
                   >
                     See Details
@@ -88,14 +88,14 @@ const AllNews = () => {
                     // setShowModal(true);
                     // setPostIdToDelete(item?._id);
                     // }}
-                    onClick={() => handleDelete(item?._id)}
+                    // onClick={() => handleDelete(item?.id)}
                     className="font-medium text-red-500 hover:underline cursor-pointer"
                   >
                     Delete
                   </span>
                 </Table.Cell>
                 <Table.Cell>
-                  <Link to={`edit/${item?._id}`}>
+                  <Link to={`all-news/edit/${item?.source.id}`}>
                     <span className="text-emerald-500 hover:underline">
                       Edit
                     </span>

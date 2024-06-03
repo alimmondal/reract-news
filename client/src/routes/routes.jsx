@@ -7,15 +7,14 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import Dashboard from "../pages/Dashboard";
 import Registration from "../pages/Registration";
 import PrivateRoute from "./private/PrivateRoute";
-import ProductDetails from "../pages/ProductDetails";
 import AllNews from "../pages/AllNews";
-import EditProducts from "../pages/EditProducts";
+import EditNews from "../pages/EditNews";
 import Profile from "../pages/Profile";
 import EditProfile from "../pages/EditProfile";
 import HomePage from "../pages/Home";
 import SinglePage from "../component/singlePage/SinglePage";
-import r from "../pages/AddNews";
 import AddNews from "../pages/AddNews";
+import Culture from "../pages/Culture";
 
 export const router = createBrowserRouter([
   {
@@ -28,12 +27,7 @@ export const router = createBrowserRouter([
         element: <HomePage />,
         // loader: () => fetch("http://localhost:5000/shoes"),
       },
-      {
-        path: "/products/:id",
-        element: <ProductDetails />,
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/shoes/${params.id}`),
-      },
+
       {
         path: "/about",
         element: <About />,
@@ -41,14 +35,16 @@ export const router = createBrowserRouter([
       {
         path: "/singlepage/:id",
         element: <SinglePage />,
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/news/${params.id}`),
       },
       {
         path: "/login",
         element: <Login />,
       },
       {
-        path: "/register",
-        element: <Registration />,
+        path: "/all",
+        element: <Culture />,
       },
       // {
       //   path: "/dashboard",
@@ -101,10 +97,10 @@ export const router = createBrowserRouter([
         // fetch(`http://localhost:5000/user/get/${params.id}`),
       },
       {
-        path: "all-products/edit/:id",
+        path: "all-news/edit/:id",
         element: (
           <PrivateRoute>
-            <EditProducts />
+            <EditNews />
           </PrivateRoute>
         ),
         // loader: ({ params }) =>

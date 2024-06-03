@@ -3,7 +3,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
-const EditProducts = () => {
+const EditNews = () => {
   const shoe = useLoaderData();
 
   const [title, setTitle] = useState(shoe.title);
@@ -114,4 +114,4 @@ const EditProducts = () => {
   );
 };
 
-export default EditProducts;
+export default EditNews;
