@@ -4,38 +4,10 @@ import { Table } from "flowbite-react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const AllProducts = () => {
+const AllNews = () => {
   const [products, setProducts] = useState([]);
   // const [showModal, setShowModal] = useState(false);
   // const [postIdToDelete, setPostIdToDelete] = useState("");
-
-  // console.log(products);
-  useEffect(() => {
-    fetch("http://localhost:5000/shoes")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-
-  const handleDelete = async (_id) => {
-    // setShowModal(false);
-    try {
-      await fetch(`http://localhost:5000/shoes/${_id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          // console.log(data);
-          setProducts(products.filter((product) => product._id !== _id));
-          if (data) {
-            toast.success("Product deleted successfully");
-          }
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  // console.log(products.length);
 
   return (
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
@@ -153,7 +125,7 @@ const AllProducts = () => {
   );
 };
 
-export default AllProducts;
+export default AllNews;
 {
   /* <div>
       <h1 className="text-5xl font-bold text-center">All Produts</h1>

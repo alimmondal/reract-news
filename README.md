@@ -1,2 +1,4 @@
-# stride-ecom-app
-# reract-news
+cd client
+npm run dev
+ctr+click on url
+http://localhost:5173/

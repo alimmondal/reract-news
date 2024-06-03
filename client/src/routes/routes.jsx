@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
-import Home from "../pages/Home";
 import About from "../pages/About";
 import Login from "../pages/Login";
 import ErrorPage from "../pages/ErrorPage";
@@ -9,13 +8,14 @@ import Dashboard from "../pages/Dashboard";
 import Registration from "../pages/Registration";
 import PrivateRoute from "./private/PrivateRoute";
 import ProductDetails from "../pages/ProductDetails";
-import AllProducts from "../pages/AllProducts";
-import AddProducts from "../pages/AddProducts";
+import AllNews from "../pages/AllNews";
 import EditProducts from "../pages/EditProducts";
 import Profile from "../pages/Profile";
 import EditProfile from "../pages/EditProfile";
 import HomePage from "../pages/Home";
 import SinglePage from "../component/singlePage/SinglePage";
+import r from "../pages/AddNews";
+import AddNews from "../pages/AddNews";
 
 export const router = createBrowserRouter([
   {
@@ -26,13 +26,13 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader: () => fetch("http://localhost:5000/shoes"),
+        // loader: () => fetch("http://localhost:5000/shoes"),
       },
       {
         path: "/products/:id",
         element: <ProductDetails />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/shoes/${params.id}`),
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/shoes/${params.id}`),
       },
       {
         path: "/about",
@@ -75,18 +75,18 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "all-products",
+        path: "all-news",
         element: (
           <PrivateRoute>
-            <AllProducts />
+            <AllNews />
           </PrivateRoute>
         ),
       },
       {
-        path: "add-products",
+        path: "add-news",
         element: (
           <PrivateRoute>
-            <AddProducts />
+            <AddNews />
           </PrivateRoute>
         ),
       },
@@ -97,8 +97,8 @@ export const router = createBrowserRouter([
       {
         path: "profile/edit/:id",
         element: <EditProfile />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/user/get/${params.id}`),
+        // loader: ({ params }) =>
+        // fetch(`http://localhost:5000/user/get/${params.id}`),
       },
       {
         path: "all-products/edit/:id",
@@ -107,8 +107,8 @@ export const router = createBrowserRouter([
             <EditProducts />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/shoes/${params.id}`),
+        // loader: ({ params }) =>
+        // fetch(`http://localhost:5000/shoes/${params.id}`),
       },
     ],
   },

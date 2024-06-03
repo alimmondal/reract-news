@@ -35,10 +35,10 @@ export default function DashboardLayout() {
                 <Link to={"profile"}>Profile</Link>
               </li>
               <li>
-                <Link to={"all-products"}>all-products</Link>
+                <Link to={"all-news"}>All-News</Link>
               </li>
               <li>
-                <Link to={"add-products"}>add-products</Link>
+                <Link to={"add-news"}>Add-news</Link>
               </li>
             </div>
             <div className="flex gap-4">

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { Button } from "flowbite-react";
+import { useEffect, useState } from "react";
 
 const Profile = () => {
   const { logout, user } = useAuth();
-  // console.log(user);
+
   return (
     <div className="max-w-lg mx-auto p-3 w-full">
       <div className="flex flex-col items-center justify-center gap-4">
@@ -15,15 +16,24 @@ const Profile = () => {
             className="rounded-full w-full h-full object-cover border-8 border-[lightgray]"
           />
         </div>
-        <h1 className="">Name: {user?.displayName}</h1>
+        <h1 className="">Name: {user?.displayNname}</h1>
         <h1 className="">Email: {user?.email}</h1>
-        <Link to={"/dashboard/add-products"}>
+        <Link className="w-full" to={`/dashboard/profile/edit/${user?._id}`}>
           <Button
             type="button"
             gradientDuoTone="purpleToPink"
             className="w-full"
           >
-            Create a product
+            Edit profile
+          </Button>
+        </Link>
+        <Link to={"/dashboard/add-news"}>
+          <Button
+            type="button"
+            gradientDuoTone="purpleToPink"
+            className="w-full"
+          >
+            Create a post
           </Button>
         </Link>
       </div>
@@ -31,4 +41,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Profiler;
