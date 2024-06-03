@@ -12,13 +12,9 @@ const Hero = () => {
     <>
       <section className="hero">
         <div className="container">
-          {items.map((item, index) => {
-            return (
-              <>
-                <Card key={index} item={item} />
-              </>
-            );
-          })}
+          {items.map((item, index) => (
+            <Card key={item?.id} item={item} />
+          ))}
         </div>
       </section>
     </>

@@ -8,17 +8,17 @@ import Homes from "../component/home/mainContent/homes/Home";
 
 const Home = () => {
   // const data = useLoaderData();
-  const [products, setProducts] = useState([]);
+  // const [news, setnews] = useState([]);
 
-  useEffect(() => {
-    const apiKey = "8f32b7d45db04cc2bab08310586753dd";
+  // useEffect(() => {
+  //   const apiKey = "8f32b7d45db04cc2bab08310586753dd";
 
-    fetch(`https://newsapi.org/v2/top-headlines?country=US&apikey=${apiKey}`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  //   fetch(`https://newsapi.org/v2/top-headlines?country=US&apikey=${apiKey}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setnews(data));
+  // }, []);
 
-  console.log(products);
+  // console.log(news);
   return (
     <div>
       <Hero />
