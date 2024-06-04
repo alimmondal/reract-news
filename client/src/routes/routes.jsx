@@ -43,6 +43,10 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
       {
+        path: "/register",
+        element: <Registration />,
+      },
+      {
         path: "/all",
         element: <Culture />,
       },

@@ -54,7 +54,7 @@ const Header = () => {
                   <li>
                     <Link to={"/dashboard"}>Dashboard</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <button
                       onClick={handleLogout}
                       className="bg-red-500 text-white px-2 py-1"
@@ -64,7 +64,7 @@ const Header = () => {
                   </li>
                   <li className="w-10 h-7 rounded-full border-2 border-black">
                     <img src={user?.photoURL || "/public/placeholder.jpg"} />
-                  </li>
+                  </li> */}
                 </>
               )}
             </ul>
