@@ -9,7 +9,7 @@ const Hero = ({ items }) => {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero1 overflow-hidden">
         <div className="container">
           {items.slice(3, 7).map((item, index) => (
             <Card key={item?.source.id} item={item} />

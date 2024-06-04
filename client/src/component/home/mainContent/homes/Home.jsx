@@ -35,7 +35,7 @@ const Homes = () => {
   return (
     <>
       <main>
-        <div className="container">
+        <div className="container overflow-hidden">
           <section className="mainContent">
             <Popular popular={filteredArticles} />
             <Ppost />

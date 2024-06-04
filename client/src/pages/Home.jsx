@@ -3,7 +3,6 @@ import Hero from "../component/home/hero/Hero";
 import Homes from "../component/home/mainContent/homes/Home";
 import Discover from "../component/home/discover/Discover";
 import LoadingSpinner from "../component/LoadingSpinner";
-import useAuth from "../hooks/useAuth";
 
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
