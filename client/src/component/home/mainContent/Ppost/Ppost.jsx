@@ -36,7 +36,6 @@ const Ppost = () => {
                     <div className="text">
                       <h1 className="title">{val.title.slice(0, 40)}...</h1>
                       <div className="date">
-                        {/* <i class="fas fa-calendar-days"></i> */}
                         <FaCalendarDay size={24} />
                         <label>{val.date}</label>
                       </div>

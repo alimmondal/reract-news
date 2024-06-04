@@ -30,7 +30,7 @@ const Homes = () => {
   };
 
   const filteredArticles = removeDuplicates();
-  console.log(filteredArticles);
+  // console.log(filteredArticles);
 
   return (
     <>

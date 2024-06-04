@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import Hero from "../component/home/hero/Hero";
 import Homes from "../component/home/mainContent/homes/Home";
 import Discover from "../component/home/discover/Discover";
+import LoadingSpinner from "../component/LoadingSpinner";
+import useAuth from "../hooks/useAuth";
 
 const HomePage = () => {
-  // const data = useLoaderData();
+  const [loading, setLoading] = useState(true);
   const [topNews, setTopNews] = useState([]);
 
   useEffect(() => {
@@ -28,11 +30,26 @@ const HomePage = () => {
   const filteredArticles = removeDuplicates();
   // console.log(filteredArticles);
 
+  useEffect(() => {
+    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   return (
     <div>
-      <Hero items={filteredArticles} />
-      <Homes data={filteredArticles} />
-      <Discover />
+      {loading ? (
+        <>
+          <LoadingSpinner />
+        </>
+      ) : (
+        <>
+          <Hero items={filteredArticles} />
+          <Homes data={filteredArticles} />
+          <Discover />
+        </>
+      )}
     </div>
   );
 };

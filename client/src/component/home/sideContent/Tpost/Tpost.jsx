@@ -1,6 +1,5 @@
 import React from "react";
 import { tpost } from "../../../../../../dummyData copy";
-
 import Heading from "../../../common/heading/Heading";
 import "./tpost.css";
 

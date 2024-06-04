@@ -46,10 +46,6 @@ export const router = createBrowserRouter([
         path: "/all",
         element: <Culture />,
       },
-      // {
-      //   path: "/dashboard",
-      //   element: <Dashboard />,
-      // },
     ],
   },
   {
@@ -104,7 +100,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         // loader: ({ params }) =>
-        // fetch(`http://localhost:5000/shoes/${params.id}`),
+        // fetch(`http://localhost:5000/news/${params.id}`),
       },
     ],
   },
