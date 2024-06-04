@@ -1,7 +1,3 @@
-// import { useLoaderData } from "react-router-dom";
-// import Accordian from "../components/home/Accordian";
-// import Banner from "../components/home/Banner";
-import Products from "../components/home/Products";
 import { useEffect, useState } from "react";
 import Hero from "../component/home/hero/Hero";
 import Homes from "../component/home/mainContent/homes/Home";
@@ -37,7 +33,6 @@ const HomePage = () => {
       <Hero items={filteredArticles} />
       <Homes data={filteredArticles} />
       <Discover />
-      {/* <Products data={data} /> */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import GoogleLogin from "../components/Login-Registration/GoogleLogin";
+import GoogleLogin from "../component/Login-Registration/GoogleLogin";
 import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
 
